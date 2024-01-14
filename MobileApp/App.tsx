@@ -7,7 +7,7 @@
  */
 
 import React from 'react';
-import type { Node } from 'react';
+//import type { Node } from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -25,8 +25,10 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import './src/localization/i18n';
+import {useTranslation} from 'react-i18next';
 
-const Section = ({ children, title }): Node => {
+const Section = ({children, title}): Node => {
   const isDarkMode = useColorScheme() === 'dark';
   return (
     <View style={styles.sectionContainer}>
@@ -54,6 +56,7 @@ const Section = ({ children, title }): Node => {
 
 const App: () => Node = () => {
   const isDarkMode = useColorScheme() === 'dark';
+  const {t} = useTranslation();
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
@@ -74,16 +77,10 @@ const App: () => Node = () => {
             Edit <Text style={styles.highlight}>App.js</Text> to change this
             screen and then come back to see your edits.
           </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
           <Section title="Learn More">
-            Read the docs to discover what to do next:
+            {t('screens.intro.text.introText')}
           </Section>
-          <LearnMoreLinks />
+          <Section title="Learn More">{t('screens.intro.text.login')}</Section>
         </View>
       </ScrollView>
     </SafeAreaView>
