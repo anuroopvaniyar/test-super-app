@@ -5,14 +5,14 @@
       "title": "Intro Screen",
       "text": {
         "introText": "This is the intro text in Arabic",
-        "login": "Login",
+        "login": "تسجيل الدخول",
         "signup": "Sign Up"
       }
     },
     "login": {
       "title": "Sign in",
       "text": {
-        "login": "login",
+        "login": "تسجيل الدخول",
         "emailAddress": "Email address",
         "password": "password",
         "continue": "Continue",
