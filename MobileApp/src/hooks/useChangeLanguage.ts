@@ -4,6 +4,7 @@ import {useTranslation} from 'react-i18next';
 import {LANGUAGE_KEY} from 'appConstants/keys';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {I18nManager} from 'react-native';
+import {isRTLRequired} from 'src/utils';
 
 const useChangeLanguage = () => {
   const {i18n} = useTranslation();
@@ -14,7 +15,7 @@ const useChangeLanguage = () => {
     try {
       //save a user's language choice in Async storage
       await AsyncStorage.setItem(LANGUAGE_KEY, languageCode);
-      I18nManager.forceRTL(languageCode === LANGUAGE_CODES.ARABIC);
+      I18nManager.forceRTL(isRTLRequired(languageCode));
     } catch (error) {}
     // // Reload the app
     RNRestart.restart();

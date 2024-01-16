@@ -1,4 +1,5 @@
 import {TEXT_SIZE} from 'types';
+import {LANGUAGE_CODES} from 'types/';
 
 export const getTextFontSize = (size: TEXT_SIZE) => {
   const fontSizes = {
@@ -18,4 +19,10 @@ export const getTextFontSize = (size: TEXT_SIZE) => {
       fontSize: 24,
     }
   );
+};
+
+export const isRTLRequired = (languageCode: LANGUAGE_CODES) => {
+  const requiredLanguages = [LANGUAGE_CODES.ARABIC];
+
+  return requiredLanguages.includes(languageCode);
 };
