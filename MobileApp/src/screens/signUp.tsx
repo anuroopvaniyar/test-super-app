@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {Loader, BaseLayout, Text, Spacer, TextInput, Button} from 'components';
 import {useTranslation} from 'react-i18next';
 import {StyleSheet, Platform} from 'react-native';
-
 import Icon from 'react-native-vector-icons/Octicons';
 import {BLACK} from 'appConstants/colors';
 import {ROUTE_SETTINGS} from 'appConstants/routes';
@@ -34,25 +33,12 @@ const SignUp = (props: any) => {
       </Text>
       <Spacer />
       <TextInput
-        label={t('signUp.name')}
+        label={t('signUp.username')}
         returnKeyType="next"
         //value={name.value}
         // onChangeText={text => setName({ value: text, error: '' })}
         // error={!!name.error}
         // errorText={name.error}
-      />
-      <Spacer />
-      <TextInput
-        label={t('signUp.email')}
-        returnKeyType="next"
-        //value={email.value}
-        //onChangeText={text => setEmail({ value: text, error: '' })}
-        // error={!!email.error}
-        // errorText={email.error}
-        autoCapitalize="none"
-        autoCompleteType="email"
-        textContentType="emailAddress"
-        keyboardType="email-address"
       />
       <Spacer />
       <TextInput

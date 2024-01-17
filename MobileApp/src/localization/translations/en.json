@@ -2,7 +2,7 @@
   "language": "English",
   "signUp": {
     "createAccount": "Create Account",
-    "name": "Name",
+    "username": "Name",
     "email": "Email",
     "password": "Password",
     "signUp": "Sign Up"

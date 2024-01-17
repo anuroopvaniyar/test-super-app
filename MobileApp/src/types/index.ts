@@ -25,3 +25,9 @@ export interface Theme {
     action: string;
   };
 }
+
+export enum PERSIST_FIELD_NAMES {
+  COUNTRY = 'country',
+  LANGUAGE = 'language',
+  USERNAME = 'username',
+}

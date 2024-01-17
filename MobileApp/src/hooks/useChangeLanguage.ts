@@ -1,23 +1,25 @@
-import {LANGUAGE_CODES} from '../types';
+import {LANGUAGE_CODES, PERSIST_FIELD_NAMES} from '../types';
 import RNRestart from 'react-native-restart';
 import {useTranslation} from 'react-i18next';
-import {LANGUAGE_KEY} from 'appConstants/keys';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import {I18nManager} from 'react-native';
 import {isRTLRequired} from 'src/utils';
+import {useDispatch} from 'react-redux';
+import {setValue} from 'src/state/actions';
 
 const useChangeLanguage = () => {
   const {i18n} = useTranslation();
+  const dispatch = useDispatch();
 
   const onLanguageChange = async (languageCode: LANGUAGE_CODES) => {
+    // Persist the value
+    dispatch(setValue(PERSIST_FIELD_NAMES.LANGUAGE, languageCode));
+
+    const isRTLNeeded = isRTLRequired(languageCode);
     // Apply the language change
     i18n.changeLanguage(languageCode);
-    try {
-      //save a user's language choice in Async storage
-      await AsyncStorage.setItem(LANGUAGE_KEY, languageCode);
-      I18nManager.forceRTL(isRTLRequired(languageCode));
-    } catch (error) {}
-    // // Reload the app
+    I18nManager.forceRTL(isRTLNeeded);
+
+    // Reload the app
     RNRestart.restart();
   };
 
