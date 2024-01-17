@@ -1,13 +1,19 @@
 import React, {useRef} from 'react';
-import {COUNTRY} from './types';
+import {COUNTRY, TEXT_SIZE} from './types';
 import {Provider as ThemeProvider} from 'react-native-paper';
 import AppNavigator from './navigation';
-import {NavigationContainer, NavigationState} from '@react-navigation/native';
+import {NavigationContainer} from '@react-navigation/native';
 import {useAppSettings, useUpdateTheme, useAppInit} from 'hooks';
-import {Loader} from 'components';
+import {Loader, Text, Button, BaseLayout} from 'components';
+import {useTranslation} from 'react-i18next';
+import {BLACK} from 'appConstants/colors';
+import ErrorBoundary from 'react-native-error-boundary';
+import {Spacer} from './components';
+import RNRestart from 'react-native-restart';
 
 const SuperApp = () => {
   const navigationRef = useRef();
+  const {t} = useTranslation();
 
   const {isLoadingComplete} = useAppInit();
 
@@ -16,10 +22,25 @@ const SuperApp = () => {
 
   if (!isLoadingComplete) return <Loader />;
 
+  const reStart = () => RNRestart.restart();
+
+  const CustomFallback = () => (
+    <BaseLayout>
+      <Spacer />
+      <Text color={BLACK}>{t('error.title')}</Text>
+      <Text color={BLACK} size={TEXT_SIZE.MEDIUM}>
+        {t('error.msg')}
+      </Text>
+      <Button onPress={reStart} title={t('error.cta')} />
+    </BaseLayout>
+  );
+
   return (
     <ThemeProvider theme={getTheme({countryCode: country})}>
       <NavigationContainer ref={navigationRef}>
-        <AppNavigator />
+        <ErrorBoundary FallbackComponent={CustomFallback}>
+          <AppNavigator />
+        </ErrorBoundary>
       </NavigationContainer>
     </ThemeProvider>
   );
