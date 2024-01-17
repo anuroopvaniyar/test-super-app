@@ -2,18 +2,33 @@ import React, {useState} from 'react';
 import {Loader, BaseLayout, Text, Spacer, TextInput, Button} from 'components';
 import {useTranslation} from 'react-i18next';
 import {StyleSheet, Platform} from 'react-native';
-import SelectCountry from 'src/uiviews/selectCountry';
-import SelectLanguage from 'src/uiviews/selectLanguage';
+
+import Icon from 'react-native-vector-icons/Octicons';
+import {BLACK} from 'appConstants/colors';
+import {ROUTE_SETTINGS} from 'appConstants/routes';
 
 const SignUp = (props: any) => {
+  const {navigation} = props;
   const {t} = useTranslation();
 
-  const [showCountryList, setShowCountryList] = useState(false);
-  const [showLanguageList, setShowLanguageList] = useState(false);
+  const renderSettings = () => {
+    navigation.navigate(ROUTE_SETTINGS);
+  };
 
   return (
-    <BaseLayout style={{justifyContent: 'flex-start'}}>
-      <Spacer />
+    <BaseLayout style={{justifyContent: 'center'}}>
+      <Icon
+        name="three-bars"
+        size={24}
+        color={BLACK}
+        onPress={renderSettings}
+        style={{
+          alignSelf: 'flex-end',
+          position: 'absolute',
+          top: 10,
+          right: 24,
+        }}
+      />
       <Text bold big>
         {t('signUp.createAccount')}
       </Text>
@@ -50,29 +65,10 @@ const SignUp = (props: any) => {
         secureTextEntry
       />
       <Spacer />
-      <Button mode="contained" onPress={null} style={styles.button}>
+      <Button mode="contained" onPress={null}>
         {t('signUp.signUp')}
       </Button>
       <Spacer />
-      <Button
-        mode="contained"
-        onPress={() => setShowCountryList(true)}
-        style={styles.button}>
-        {'Select Country'}
-      </Button>
-      <Spacer />
-      <Button
-        mode="contained"
-        onPress={() => setShowLanguageList(true)}
-        style={styles.button}>
-        {'Select Language'}
-      </Button>
-      {showCountryList && (
-        <SelectCountry onDismiss={() => setShowCountryList(false)} />
-      )}
-      {showLanguageList && (
-        <SelectLanguage onDismiss={() => setShowLanguageList(false)} />
-      )}
     </BaseLayout>
   );
 };

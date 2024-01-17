@@ -6,10 +6,12 @@ import {
   Text,
   Button,
   Selector,
+  BackButton,
 } from 'components';
 import {useTranslation} from 'react-i18next';
 import {getCountriesData} from 'src/utils';
 import {useUpdateTheme} from 'hooks';
+import {TEXT_SIZE} from 'types';
 
 const SelectCountry = (props: {onDismiss: () => void}) => {
   const {onDismiss} = props;
@@ -27,8 +29,9 @@ const SelectCountry = (props: {onDismiss: () => void}) => {
   return (
     <FullScreen>
       <BaseLayout>
+        <BackButton goBack={onDismiss} />
         <Spacer />
-        <Text bold big>
+        <Text bold size={TEXT_SIZE.MEDIUM}>
           {t('selectCountry.title')}
         </Text>
         <Spacer />

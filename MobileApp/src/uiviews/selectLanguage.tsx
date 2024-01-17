@@ -1,8 +1,16 @@
 import React from 'react';
-import {FullScreen, BaseLayout, Spacer, Text, Selector} from 'components';
+import {
+  FullScreen,
+  BaseLayout,
+  Spacer,
+  Text,
+  Selector,
+  BackButton,
+} from 'components';
 import {useTranslation} from 'react-i18next';
 import {getLanguagesData} from 'src/utils';
 import {useChangeLanguage} from 'hooks';
+import {TEXT_SIZE} from 'types';
 
 const SelectLanguage = (props: {onDismiss: () => void}) => {
   const {onDismiss} = props;
@@ -18,9 +26,10 @@ const SelectLanguage = (props: {onDismiss: () => void}) => {
 
   return (
     <FullScreen>
-      <BaseLayout style={{justifyContent: 'flex-start'}}>
+      <BaseLayout>
+        <BackButton goBack={onDismiss} />
         <Spacer />
-        <Text bold big>
+        <Text bold size={TEXT_SIZE.MEDIUM}>
           {t('selectLanguage.title')}
         </Text>
         <Spacer />

@@ -7,6 +7,9 @@
     "password": "Password",
     "signUp": "Sign Up"
   },
+  "settings": {
+    "title": "Settings"
+  },
   "selectCountry": {
     "title": "Select Country",
     "AE": {

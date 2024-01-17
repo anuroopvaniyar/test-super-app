@@ -5,11 +5,14 @@ import * as Colors from 'appConstants/colors';
 
 type Props = {
   children: React.ReactNode;
+  style?: Object;
 };
 
-const BaseLayout = ({children}: Props) => (
+const BaseLayout = ({children, style}: Props) => (
   <SafeAreaView style={{flex: 1, backgroundColor: Colors.WHITE}}>
-    <KeyboardAvoidingView style={styles.container} behavior="padding">
+    <KeyboardAvoidingView
+      style={{...styles.container, ...style}}
+      behavior="padding">
       {children}
     </KeyboardAvoidingView>
   </SafeAreaView>
@@ -22,7 +25,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    padding: 48,
+    paddingHorizontal: 24,
     width: '100%',
     alignItems: 'center',
   },

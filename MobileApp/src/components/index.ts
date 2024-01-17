@@ -6,3 +6,4 @@ export {default as Text} from './Text';
 export {default as TextInput} from './TextInput';
 export {default as FullScreen} from './FullScreen';
 export {default as Selector} from './Selector';
+export {default as BackButton} from './BackButton';
