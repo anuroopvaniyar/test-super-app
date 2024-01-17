@@ -1,11 +1,14 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
 import {Button as PaperButton, useTheme} from 'react-native-paper';
+import {WHITE} from 'appConstants/colors';
 
 type Props = React.ComponentProps<typeof PaperButton>;
 
 const Button = ({mode, style, children, ...props}: Props) => {
   const theme = useTheme();
+
+  const {buttonColor = theme.colors.primary, textColor = WHITE} = props;
 
   return (
     <PaperButton
@@ -17,8 +20,8 @@ const Button = ({mode, style, children, ...props}: Props) => {
       ]}
       labelStyle={styles.text}
       mode={mode}
-      buttonColor={theme.colors.primary}
-      textColor={'#FFFFFF'}
+      buttonColor={buttonColor}
+      textColor={textColor}
       {...props}>
       {children}
     </PaperButton>

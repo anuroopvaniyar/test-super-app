@@ -1,17 +1,21 @@
 import React from 'react';
-import {ImageBackground, StyleSheet, KeyboardAvoidingView} from 'react-native';
+import {SafeAreaView, StyleSheet, KeyboardAvoidingView} from 'react-native';
 
 import * as Colors from 'appConstants/colors';
-import Assets from 'appConstants/assets';
 
 type Props = {
   children: React.ReactNode;
+  style?: Object;
 };
 
-const BaseLayout = ({children}: Props) => (
-  <KeyboardAvoidingView style={styles.container} behavior="padding">
-    {children}
-  </KeyboardAvoidingView>
+const BaseLayout = ({children, style}: Props) => (
+  <SafeAreaView style={{flex: 1, backgroundColor: Colors.WHITE}}>
+    <KeyboardAvoidingView
+      style={{...styles.container, ...style}}
+      behavior="padding">
+      {children}
+    </KeyboardAvoidingView>
+  </SafeAreaView>
 );
 
 const styles = StyleSheet.create({
@@ -21,12 +25,9 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    padding: 20,
+    paddingHorizontal: 24,
     width: '100%',
-    maxWidth: 340,
-    alignSelf: 'center',
     alignItems: 'center',
-    justifyContent: 'center',
   },
 });
 

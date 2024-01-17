@@ -2,6 +2,7 @@ export enum LANGUAGE_CODES {
   ENGLISH = 'en',
   ARABIC = 'ar',
   URDU = 'ur',
+  HINDI = 'hi',
 }
 
 export enum TEXT_SIZE {
