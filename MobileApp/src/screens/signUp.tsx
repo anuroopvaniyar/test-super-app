@@ -4,7 +4,7 @@ import {useTranslation} from 'react-i18next';
 import {StyleSheet, Platform} from 'react-native';
 import Icon from 'react-native-vector-icons/Octicons';
 import {BLACK} from 'appConstants/colors';
-import {ROUTE_SETTINGS} from 'appConstants/routes';
+import {ROUTE_SETTINGS, ROUTE_DASHBOARD} from 'appConstants/routes';
 
 const SignUp = (props: any) => {
   const {navigation} = props;
@@ -13,6 +13,8 @@ const SignUp = (props: any) => {
   const renderSettings = () => {
     navigation.navigate(ROUTE_SETTINGS);
   };
+
+  const onSignUp = () => navigation.navigate(ROUTE_DASHBOARD);
 
   return (
     <BaseLayout style={{justifyContent: 'center'}}>
@@ -51,7 +53,7 @@ const SignUp = (props: any) => {
         secureTextEntry
       />
       <Spacer />
-      <Button mode="contained" onPress={null}>
+      <Button mode="contained" onPress={onSignUp}>
         {t('signUp.signUp')}
       </Button>
       <Spacer />

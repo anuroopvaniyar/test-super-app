@@ -39,5 +39,11 @@
     "UR": {
       "label": "Urdu"
     }
+  },
+  "dashboard": {
+    "welcome": "Welcome!",
+    "username": "Username",
+    "country": "Country",
+    "language": "Language"
   }
 }
