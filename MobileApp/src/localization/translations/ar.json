@@ -1,24 +1,10 @@
 {
   "language": "Arabic",
-  "screens": {
-    "intro": {
-      "title": "Intro Screen",
-      "text": {
-        "introText": "This is the intro text in Arabic",
-        "login": "تسجيل الدخول",
-        "signup": "Sign Up"
-      }
-    },
-    "login": {
-      "title": "Sign in",
-      "text": {
-        "login": "تسجيل الدخول",
-        "emailAddress": "Email address",
-        "password": "password",
-        "continue": "Continue",
-        "createAccount": "Create an Account",
-        "forgotPassword": "Forgotten password?"
-      }
-    }
+  "signUp": {
+    "createAccount": "إنشاء حساب",
+    "name": "اسم",
+    "email": "بريد إلكتروني",
+    "password": "كلمة المرور",
+    "signUp": "اشتراك"
   }
 }

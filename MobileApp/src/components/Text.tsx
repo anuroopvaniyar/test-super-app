@@ -4,7 +4,15 @@ import {TEXT_SIZE} from 'types';
 import {getTextFontSize} from 'utils';
 import {useTheme} from 'react-native-paper';
 
-const Text = (props: any) => {
+type Props = {
+  children: React.ReactNode;
+  bold?: boolean;
+  size?: TEXT_SIZE;
+  style?: Object;
+  color: string;
+};
+
+const Text = (props: Props) => {
   const theme = useTheme();
   const {
     children,

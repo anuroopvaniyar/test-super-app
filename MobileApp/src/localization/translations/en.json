@@ -1,24 +1,40 @@
 {
   "language": "English",
-  "screens": {
-    "intro": {
-      "title": "Intro Screen",
-      "text": {
-        "introText": "This is the intro text in english",
-        "login": "Login",
-        "signup": "Sign Up"
-      }
+  "signUp": {
+    "createAccount": "Create Account",
+    "name": "Name",
+    "email": "Email",
+    "password": "Password",
+    "signUp": "Sign Up"
+  },
+  "selectCountry": {
+    "title": "Select Country",
+    "AE": {
+      "label": "United Arab Emirates"
     },
-    "login": {
-      "title": "Sign in",
-      "text": {
-        "login": "login",
-        "emailAddress": "Email address",
-        "password": "password",
-        "continue": "Continue",
-        "createAccount": "Create an Account",
-        "forgotPassword": "Forgotten password?"
-      }
+    "EG": {
+      "label": "Egypt"
+    },
+    "IN": {
+      "label": "India"
+    },
+    "PK": {
+      "label": "Pakistan"
+    }
+  },
+  "selectLanguage": {
+    "title": "Select Language",
+    "EN": {
+      "label": "English"
+    },
+    "AR": {
+      "label": "Arabic"
+    },
+    "HI": {
+      "label": "Hindi"
+    },
+    "UR": {
+      "label": "Urdu"
     }
   }
 }
