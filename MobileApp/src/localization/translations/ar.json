@@ -2,7 +2,7 @@
   "language": "Arabic",
   "signUp": {
     "createAccount": "إنشاء حساب",
-    "name": "اسم",
+    "username": "اسم",
     "email": "بريد إلكتروني",
     "password": "كلمة المرور",
     "signUp": "اشتراك"

@@ -4,24 +4,24 @@ import {
   BaseLayout,
   Spacer,
   Text,
-  Button,
   Selector,
   BackButton,
 } from 'components';
 import {useTranslation} from 'react-i18next';
 import {getCountriesData} from 'src/utils';
-import {useUpdateTheme} from 'hooks';
 import {TEXT_SIZE} from 'types';
+import {useDispatch} from 'react-redux';
+import {setValue} from 'src/state/actions';
+import {PERSIST_FIELD_NAMES} from 'types';
 
 const SelectCountry = (props: {onDismiss: () => void}) => {
   const {onDismiss} = props;
   const {t} = useTranslation();
-  const {getTheme} = useUpdateTheme();
+  const dispatch = useDispatch();
 
   const handleCountrySelect = (countryData: any) => {
     const {value} = countryData;
-
-    getTheme({countryCode: value});
+    dispatch(setValue(PERSIST_FIELD_NAMES.COUNTRY, value));
 
     onDismiss && onDismiss();
   };

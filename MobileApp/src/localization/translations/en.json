@@ -2,7 +2,7 @@
   "language": "English",
   "signUp": {
     "createAccount": "Create Account",
-    "name": "Name",
+    "username": "Username",
     "email": "Email",
     "password": "Password",
     "signUp": "Sign Up"
@@ -39,5 +39,16 @@
     "UR": {
       "label": "Urdu"
     }
+  },
+  "dashboard": {
+    "welcome": "Welcome!",
+    "username": "Username",
+    "country": "Country",
+    "language": "Language"
+  },
+  "error": {
+    "title": "Oops! Something went wrong.",
+    "msg": "We are working on it.",
+    "cta": "Try again"
   }
 }

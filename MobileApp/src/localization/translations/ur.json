@@ -2,7 +2,7 @@
   "language": "Urdu",
   "signUp": {
     "createAccount": "اکاؤنٹ بنائیں",
-    "name": "نام",
+    "username": "نام",
     "email": "ای میل",
     "password": "پاس ورڈ",
     "signUp": "سائن اپ"
