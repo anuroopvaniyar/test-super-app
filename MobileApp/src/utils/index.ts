@@ -1,5 +1,10 @@
 import {TEXT_SIZE} from 'types';
-import {LANGUAGE_CODES, COUNTRY} from 'types/';
+import {LANGUAGE_CODES, COUNTRY} from 'types';
+import {Regex} from 'src/validations/regex';
+import {SPCL_CHAR} from 'appConstants/keys';
+import {NUMBER_FIVE, NUMBER_SEVEN, NUMBER_SIX} from 'appConstants';
+import {SPCL_CHAR_EG} from 'appConstants/';
+import {SPCL_CHAR_PK} from 'appConstants/';
 
 export const getTextFontSize = (size: TEXT_SIZE) => {
   const fontSizes = {
@@ -75,4 +80,50 @@ export const getLanguagesData = (t: any) => {
       value: LANGUAGE_CODES.URDU,
     },
   ];
+};
+
+export const getUsernameValidationConfigByCountry = (
+  countryCode: COUNTRY,
+  t: any,
+) => {
+  const validations = {
+    [COUNTRY.AE]: {
+      regex: Regex.ALPHA_NUMERIC_ONLY,
+      errorText: t('validationError.username.error'),
+      minLength: NUMBER_FIVE,
+    },
+    [COUNTRY.EG]: {
+      regex: Regex.ALPHA_NUMERIC_SPL_CHARS_ONLY.replace(
+        SPCL_CHAR,
+        SPCL_CHAR_EG,
+      ),
+      errorText: t('validationError.username.errorSplChars', {
+        splChars: SPCL_CHAR_EG,
+      }),
+      minLength: NUMBER_SEVEN,
+    },
+    [COUNTRY.IN]: {
+      regex: Regex.ALPHA_NUMERIC_STARTING_WITH_LETTER,
+      errorText: t('validationError.username.error'),
+      minLength: NUMBER_SIX,
+    },
+    [COUNTRY.PK]: {
+      regex: Regex.ALPHA_NUMERIC_SPL_CHARS_ONLY.replace(
+        SPCL_CHAR,
+        SPCL_CHAR_PK,
+      ),
+      errorText: t('validationError.username.errorSplChars', {
+        splChars: SPCL_CHAR_PK,
+      }),
+      minLength: NUMBER_SEVEN,
+    },
+  };
+
+  return (
+    validations[countryCode] ?? {
+      regex: Regex.ALPHA_NUMERIC_ONLY,
+      errorText: t('validationError.username.error'),
+      minLength: NUMBER_FIVE,
+    }
+  );
 };

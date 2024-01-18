@@ -1,12 +1,5 @@
 import React, {useState} from 'react';
-import {
-  Loader,
-  BaseLayout,
-  Text,
-  Spacer,
-  BackButton,
-  Selector,
-} from 'components';
+import {Loader, BaseLayout, Text, Spacer} from 'components';
 import {useTranslation} from 'react-i18next';
 import {TEXT_SIZE} from 'types/';
 import {BLACK} from 'appConstants/colors';

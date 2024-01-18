@@ -31,3 +31,8 @@ export enum PERSIST_FIELD_NAMES {
   LANGUAGE = 'language',
   USERNAME = 'username',
 }
+
+export enum SIGNUP_INPUTS {
+  USERNAME = 'username',
+  PASSWORD = 'password',
+}

@@ -19,8 +19,10 @@ const useChangeLanguage = () => {
     i18n.changeLanguage(languageCode);
     I18nManager.forceRTL(isRTLNeeded);
 
-    // Reload the app
-    RNRestart.restart();
+    setTimeout(() => {
+      // Reload the app
+      RNRestart.restart();
+    }, 1000);
   };
 
   return {

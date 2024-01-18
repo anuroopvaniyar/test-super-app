@@ -1,26 +1,27 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
 import {Button as PaperButton, useTheme} from 'react-native-paper';
-import {WHITE} from 'appConstants/colors';
+import {WHITE, GREY} from 'appConstants/colors';
 
 type Props = React.ComponentProps<typeof PaperButton>;
 
 const Button = ({mode, style, children, ...props}: Props) => {
   const theme = useTheme();
 
-  const {buttonColor = theme.colors.primary, textColor = WHITE} = props;
+  const {
+    buttonColor = theme.colors.primary,
+    textColor = WHITE,
+    disabled,
+  } = props;
+
+  const color = disabled ? GREY : buttonColor;
 
   return (
     <PaperButton
-      style={[
-        styles.button,
-        mode === 'outlined',
-        mode === 'outlined' && {backgroundColor: theme.colors.primary},
-        style,
-      ]}
+      style={{...styles.button, backgroundColor: color, ...style}}
       labelStyle={styles.text}
       mode={mode}
-      buttonColor={buttonColor}
+      buttonColor={color}
       textColor={textColor}
       {...props}>
       {children}

@@ -1,13 +1,14 @@
 import React from 'react';
 import {View, StyleSheet, Text} from 'react-native';
 import {TextInput as Input, useTheme} from 'react-native-paper';
+import {WHITE} from 'appConstants/colors';
 
 type Props = React.ComponentProps<typeof Input> & {errorText?: string};
 
 const TextInput = ({errorText, ...props}: Props) => {
   const theme = useTheme();
   const {container, input, error} = styles(theme);
-
+  console.log('efrd errorText ', errorText);
   return (
     <View style={container}>
       <Input
@@ -30,6 +31,7 @@ const styles = theme =>
     },
     input: {
       height: 60,
+      backgroundColor: WHITE,
     },
     error: {
       fontSize: 14,

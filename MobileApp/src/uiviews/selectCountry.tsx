@@ -10,18 +10,17 @@ import {
 import {useTranslation} from 'react-i18next';
 import {getCountriesData} from 'src/utils';
 import {TEXT_SIZE} from 'types';
-import {useDispatch} from 'react-redux';
-import {setValue} from 'src/state/actions';
-import {PERSIST_FIELD_NAMES} from 'types';
+import {useChangeCountry} from 'hooks';
 
 const SelectCountry = (props: {onDismiss: () => void}) => {
   const {onDismiss} = props;
   const {t} = useTranslation();
-  const dispatch = useDispatch();
+
+  const {onCountryChange} = useChangeCountry();
 
   const handleCountrySelect = (countryData: any) => {
     const {value} = countryData;
-    dispatch(setValue(PERSIST_FIELD_NAMES.COUNTRY, value));
+    onCountryChange(value);
 
     onDismiss && onDismiss();
   };

@@ -1,14 +1,19 @@
 import React, {useState} from 'react';
-import {Loader, BaseLayout, Text, Spacer, TextInput, Button} from 'components';
+import {Loader, BaseLayout, Text, Spacer, Button} from 'components';
 import {useTranslation} from 'react-i18next';
 import {StyleSheet, Platform} from 'react-native';
 import Icon from 'react-native-vector-icons/Octicons';
 import {BLACK} from 'appConstants/colors';
 import {ROUTE_SETTINGS, ROUTE_DASHBOARD} from 'appConstants/routes';
+import useValidateSignUp from 'hooks/useValidateSignUp';
+import {SIGNUP_INPUTS} from 'types/';
+import TextInputWithController from 'components/TextInputWIthController';
 
 const SignUp = (props: any) => {
   const {navigation} = props;
   const {t} = useTranslation();
+
+  const {control, errors, getValues, formState} = useValidateSignUp();
 
   const renderSettings = () => {
     navigation.navigate(ROUTE_SETTINGS);
@@ -34,29 +39,32 @@ const SignUp = (props: any) => {
         {t('signUp.createAccount')}
       </Text>
       <Spacer />
-      <TextInput
+      <TextInputWithController
         label={t('signUp.username')}
+        control={control}
+        name={SIGNUP_INPUTS.USERNAME}
+        errorText={errors[SIGNUP_INPUTS.USERNAME]?.message}
         returnKeyType="next"
-        //value={name.value}
-        // onChangeText={text => setName({ value: text, error: '' })}
-        // error={!!name.error}
-        // errorText={name.error}
+        showErrorText
       />
       <Spacer />
-      <TextInput
+      <TextInputWithController
         label={t('signUp.password')}
+        control={control}
+        name={SIGNUP_INPUTS.PASSWORD}
+        errorText={errors[SIGNUP_INPUTS.PASSWORD]?.message}
         returnKeyType="done"
-        // value={password.value}
-        // onChangeText={text => setPassword({ value: text, error: '' })}
-        // error={!!password.error}
-        // errorText={password.error}
+        showErrorText
         secureTextEntry
       />
       <Spacer />
-      <Button mode="contained" onPress={onSignUp}>
+      <Spacer />
+      <Button
+        mode="contained"
+        onPress={onSignUp}
+        disabled={!formState?.isValid}>
         {t('signUp.signUp')}
       </Button>
-      <Spacer />
     </BaseLayout>
   );
 };
