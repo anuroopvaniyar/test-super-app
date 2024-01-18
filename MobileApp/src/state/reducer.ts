@@ -5,13 +5,13 @@ const initialState = {
   settings: {
     country: COUNTRY.AE,
     language: LANGUAGE_CODES.ENGLISH,
+    firstLaunch: true,
   },
 };
 
 const appReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_VALUE: {
-      console.log('efrd action.payload ', action.payload);
       const {fieldName, value} = action.payload;
       return {
         ...state,

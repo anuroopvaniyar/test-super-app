@@ -6,14 +6,15 @@ import {setValue} from 'src/state/actions';
 const useChangeCountry = () => {
   const dispatch = useDispatch();
 
-  const onCountryChange = async (countryCode: COUNTRY) => {
+  const onCountryChange = async (countryCode: COUNTRY, firstLaunch = false) => {
     // Persist the value
     dispatch(setValue(PERSIST_FIELD_NAMES.COUNTRY, countryCode));
 
-    setTimeout(() => {
-      // Reload the app
-      RNRestart.restart();
-    }, 1000);
+    !firstLaunch &&
+      setTimeout(() => {
+        // Reload the app
+        RNRestart.restart();
+      }, 1000);
   };
 
   return {

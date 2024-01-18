@@ -10,17 +10,27 @@ import {
 import {useTranslation} from 'react-i18next';
 import {getCountriesData} from 'src/utils';
 import {TEXT_SIZE} from 'types';
-import {useChangeCountry} from 'hooks';
+import {useChangeCountry, useAppSettings} from 'hooks';
+import {useDispatch} from 'react-redux';
+import {setValue} from 'src/state/actions';
+import {PERSIST_FIELD_NAMES} from 'types/';
 
-const SelectCountry = (props: {onDismiss: () => void}) => {
-  const {onDismiss} = props;
+const SelectCountry = (props: {
+  onDismiss: () => void;
+  hideBackButton: boolean;
+}) => {
+  const {onDismiss, hideBackButton = false} = props;
   const {t} = useTranslation();
+  const dispatch = useDispatch();
 
   const {onCountryChange} = useChangeCountry();
+  const {firstLaunch} = useAppSettings();
 
   const handleCountrySelect = (countryData: any) => {
+    firstLaunch && dispatch(setValue(PERSIST_FIELD_NAMES.FIRSTLAUNCH, false));
+
     const {value} = countryData;
-    onCountryChange(value);
+    onCountryChange(value, firstLaunch);
 
     onDismiss && onDismiss();
   };
@@ -28,7 +38,7 @@ const SelectCountry = (props: {onDismiss: () => void}) => {
   return (
     <FullScreen>
       <BaseLayout>
-        <BackButton goBack={onDismiss} />
+        {!hideBackButton && <BackButton goBack={onDismiss} />}
         <Spacer />
         <Text bold size={TEXT_SIZE.MEDIUM}>
           {t('selectCountry.title')}

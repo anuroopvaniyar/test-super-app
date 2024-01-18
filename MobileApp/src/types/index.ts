@@ -30,6 +30,7 @@ export enum PERSIST_FIELD_NAMES {
   COUNTRY = 'country',
   LANGUAGE = 'language',
   USERNAME = 'username',
+  FIRSTLAUNCH = 'firstLaunch',
 }
 
 export enum SIGNUP_INPUTS {
