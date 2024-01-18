@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Loader, BaseLayout, Text, Spacer, Button} from 'components';
 import {useTranslation} from 'react-i18next';
 import {StyleSheet, Platform} from 'react-native';
@@ -8,10 +8,19 @@ import {ROUTE_SETTINGS, ROUTE_DASHBOARD} from 'appConstants/routes';
 import useValidateSignUp from 'hooks/useValidateSignUp';
 import {SIGNUP_INPUTS} from 'types/';
 import TextInputWithController from 'components/TextInputWIthController';
+import SelectCountry from 'src/uiviews/selectCountry';
+import {useAppSettings} from 'hooks';
 
 const SignUp = (props: any) => {
   const {navigation} = props;
   const {t} = useTranslation();
+
+  const [showCountryList, setShowCountryList] = useState(false);
+  const {firstLaunch} = useAppSettings();
+
+  useEffect(() => {
+    firstLaunch && setShowCountryList(true);
+  }, []);
 
   const {control, errors, getValues, formState} = useValidateSignUp();
 
@@ -65,6 +74,12 @@ const SignUp = (props: any) => {
         disabled={!formState?.isValid}>
         {t('signUp.signUp')}
       </Button>
+      {showCountryList && (
+        <SelectCountry
+          onDismiss={() => setShowCountryList(false)}
+          hideBackButton
+        />
+      )}
     </BaseLayout>
   );
 };
