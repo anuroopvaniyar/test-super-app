@@ -10,10 +10,14 @@ import {SIGNUP_INPUTS} from 'types/';
 import TextInputWithController from 'components/TextInputWIthController';
 import SelectCountry from 'src/uiviews/selectCountry';
 import {useAppSettings} from 'hooks';
+import {useDispatch} from 'react-redux';
+import {setValue} from 'src/state/actions';
+import {PERSIST_FIELD_NAMES} from 'types/';
 
 const SignUp = (props: any) => {
   const {navigation} = props;
   const {t} = useTranslation();
+  const dispatch = useDispatch();
 
   const [showCountryList, setShowCountryList] = useState(false);
   const {firstLaunch} = useAppSettings();
@@ -28,7 +32,12 @@ const SignUp = (props: any) => {
     navigation.navigate(ROUTE_SETTINGS);
   };
 
-  const onSignUp = () => navigation.navigate(ROUTE_DASHBOARD);
+  const onSignUp = () => {
+    dispatch(
+      setValue(PERSIST_FIELD_NAMES.USERNAME, getValues(SIGNUP_INPUTS.USERNAME)),
+    );
+    navigation.navigate(ROUTE_DASHBOARD);
+  };
 
   return (
     <BaseLayout style={{justifyContent: 'center'}}>

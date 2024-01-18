@@ -44,7 +44,9 @@
     "welcome": "Welcome!",
     "username": "Username",
     "country": "Country",
-    "language": "Language"
+    "language": "Language",
+    "viewUsername": "View Username",
+    "biometricError": "Biometric validation failed!"
   },
   "error": {
     "title": "Oops! Something went wrong.",

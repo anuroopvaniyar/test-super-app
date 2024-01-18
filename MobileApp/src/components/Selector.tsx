@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
     borderColor: Colors.GREY,
     borderWidth: 1,
     borderRadius: 4,
+    alignItems: 'center',
   },
   content: {
     justifyContent: 'flex-start',
