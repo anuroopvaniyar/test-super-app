@@ -50,5 +50,15 @@
     "title": "Oops! Something went wrong.",
     "msg": "We are working on it.",
     "cta": "Try again"
+  },
+  "validationError": {
+    "username": {
+      "length": "Username must be a minimum length of {{count}} characters",
+      "error": "Only alphanumeric characters are allowed",
+      "errorSplChars": "Only alphanumeric characters & {{splChars}} are allowed"
+    },
+    "password": {
+      "length": "Password must be a minimum length of {{count}} characters"
+    }
   }
 }

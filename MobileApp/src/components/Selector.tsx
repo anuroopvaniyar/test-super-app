@@ -28,7 +28,7 @@ const Selector = (props: Props) => {
 
 const styles = StyleSheet.create({
   button: {
-    borderColor: Colors.BORDER,
+    borderColor: Colors.GREY,
     borderWidth: 1,
     borderRadius: 4,
   },

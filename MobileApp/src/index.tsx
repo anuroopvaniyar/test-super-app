@@ -26,12 +26,14 @@ const SuperApp = () => {
 
   const CustomFallback = () => (
     <BaseLayout>
-      <Spacer />
+      <Spacer size={50} />
       <Text color={BLACK}>{t('error.title')}</Text>
+      <Spacer />
       <Text color={BLACK} size={TEXT_SIZE.MEDIUM}>
         {t('error.msg')}
       </Text>
-      <Button onPress={reStart} title={t('error.cta')} />
+      <Spacer />
+      <Button onPress={reStart}>{t('error.cta')}</Button>
     </BaseLayout>
   );
 
