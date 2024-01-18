@@ -6,6 +6,7 @@ const initialState = {
     country: COUNTRY.AE,
     language: LANGUAGE_CODES.ENGLISH,
     firstLaunch: true,
+    username: '',
   },
 };
 

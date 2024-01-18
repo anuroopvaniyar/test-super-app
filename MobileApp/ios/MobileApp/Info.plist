@@ -56,6 +56,7 @@
         <string>Octicons.ttf</string>
 		<string>AntDesign.ttf</string>
     </array>
-	
+	<key>NSFaceIDUsageDescription</key>
+	<string>Only for testing</string>
 </dict>
-</plist>
+</plist>	
