@@ -8,6 +8,7 @@
 - Secure storage of username
 - Biometric validation to retreive securely stored username
 - Country based validations
+- Error boundary
 
 ## Demo
 
