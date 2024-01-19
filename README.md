@@ -8,7 +8,6 @@
 - Secure storage of username
 - Biometric validation to retreive securely stored username
 - Country based validations
-- Minimum dependencies
 
 ## Version Requirements
 
