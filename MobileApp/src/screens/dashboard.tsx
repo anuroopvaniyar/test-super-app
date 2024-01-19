@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Loader, BaseLayout, Text, Spacer} from 'components';
+import {BaseLayout, Text, Spacer} from 'components';
 import {useTranslation} from 'react-i18next';
 import {TEXT_SIZE} from 'types/';
 import {BLACK} from 'appConstants/colors';
@@ -9,15 +9,13 @@ import Icon from 'react-native-vector-icons/AntDesign';
 import {ROUTE_SIGN_UP} from 'appConstants/routes';
 import EncryptedStorage from 'react-native-encrypted-storage';
 import {ENCRYPTED_USERNAME} from 'appConstants/keys';
-import {useDispatch} from 'react-redux';
 import {Selector} from 'components';
 import ReactNativeBiometrics from 'react-native-biometrics';
 import {useTheme} from 'react-native-paper';
 
-const Dashboard = (props: any) => {
+const Dashboard = (props: {navigation: Object}) => {
   const {navigation} = props;
   const theme = useTheme();
-  const dispatch = useDispatch();
   const [retrievedUsername, setRetriedUsername] = useState('');
   const [biometricError, setBiometricError] = useState(false);
   const {
@@ -42,7 +40,7 @@ const Dashboard = (props: any) => {
     try {
       biometricError && setBiometricError(false);
       const biometrics = new ReactNativeBiometrics();
-      const {available, biometryType} = await biometrics.isSensorAvailable();
+      const {available} = await biometrics.isSensorAvailable();
       if (available) {
         const {success} = await biometrics.simplePrompt({
           promptMessage: 'Confirmation',

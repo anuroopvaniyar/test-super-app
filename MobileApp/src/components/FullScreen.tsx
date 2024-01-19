@@ -2,7 +2,7 @@ import React from 'react';
 import {Modal} from 'react-native';
 import styled from 'styled-components/native';
 
-const FullScreen = (props: any): JSX.Element => {
+const FullScreen = (props: {children: React.ReactNode}): JSX.Element => {
   return (
     <Modal coverScreen={true} {...props}>
       <Container>{props.children}</Container>

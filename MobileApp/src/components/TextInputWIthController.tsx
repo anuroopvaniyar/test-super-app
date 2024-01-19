@@ -4,7 +4,6 @@ import TextInput from './TextInput';
 
 const TextInputWithController = (props: any) => {
   const {control, name, controllerProps = {}, ...inputProps} = props;
-  console.log('efrd errorText ', props);
 
   return (
     <Controller

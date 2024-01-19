@@ -8,7 +8,7 @@ type Props = React.ComponentProps<typeof Input> & {errorText?: string};
 const TextInput = ({errorText, ...props}: Props) => {
   const theme = useTheme();
   const {container, input, error} = styles(theme);
-  console.log('efrd errorText ', errorText);
+
   return (
     <View style={container}>
       <Input

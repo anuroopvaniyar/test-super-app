@@ -1,18 +1,11 @@
 import React, {useState} from 'react';
-import {
-  Loader,
-  BaseLayout,
-  Text,
-  Spacer,
-  BackButton,
-  Selector,
-} from 'components';
+import {BaseLayout, Text, Spacer, BackButton, Selector} from 'components';
 import {useTranslation} from 'react-i18next';
 import SelectCountry from 'src/uiviews/selectCountry';
 import SelectLanguage from 'src/uiviews/selectLanguage';
 import {TEXT_SIZE} from 'types/';
 
-const Settings = (props: any) => {
+const Settings = (props: {navigation: Object}) => {
   const {navigation} = props;
   const [showCountryList, setShowCountryList] = useState(false);
   const [showLanguageList, setShowLanguageList] = useState(false);
