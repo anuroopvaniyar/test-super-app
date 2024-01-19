@@ -35,12 +35,6 @@ https://github.com/anuroopvaniyar/test-super-app.git
 $ yarn 
 ```
 
-### For Android
-
-```bash
-yarn android
-```
-
 ### For iOS
 
 To install pods run:
@@ -51,4 +45,10 @@ pod install
 
 ```bash
 yarn ios
+```
+
+### For Android
+
+```bash
+yarn android
 ```
