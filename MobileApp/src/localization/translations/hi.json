@@ -2,9 +2,74 @@
   "language": "Hindi",
   "signUp": {
     "createAccount": "खाता बनाएं",
-    "username": "नाम",
+    "username": "उपयोगकर्ता नाम",
     "email": "ईमेल",
     "password": "पासवर्ड",
-    "signUp": "साइन अप करें"
+    "signUp": "साइन अप",
+    "hasAccount": "क्या आपका खाता है?",
+    "login": "लॉग इन"
+  },
+  "login": {
+    "noAccount": "खाता नहीं है?",
+    "signUp": "साइन अप",
+    "login": "लॉग इन"
+  },
+  "settings": {
+    "title": "सेटिंग्स"
+  },
+  "selectCountry": {
+    "title": "देश का चयन करें",
+    "AE": {
+      "label": "संयुक्त अरब अमीरात"
+    },
+    "EG": {
+      "label": "मिस्र"
+    },
+    "IN": {
+      "label": "भारत"
+    },
+    "PK": {
+      "label": "पाकिस्तान"
+    }
+  },
+  "selectLanguage": {
+    "title": "भाषा का चयन करें",
+    "EN": {
+      "label": "English"
+    },
+    "AR": {
+      "label": "Arabic"
+    },
+    "HI": {
+      "label": "Hindi"
+    },
+    "UR": {
+      "label": "Urdu"
+    }
+  },
+  "dashboard": {
+    "welcome": "स्वागत है!",
+    "username": "उपयोगकर्ता नाम",
+    "country": "देश",
+    "language": "भाषा",
+    "viewUsername": "उपयोगकर्ता नाम देखें",
+    "biometricError": "बायोमेट्रिक मान्यता विफल!"
+  },
+  "error": {
+    "title": "ओह छोटी! कुछ गड़बड़ हो गई है।",
+    "msg": "हम इस पर काम कर रहे हैं।",
+    "cta": "पुनः प्रयास करें"
+  },
+  "validationError": {
+    "username": {
+      "length": "उपयोगकर्ता नाम कम से कम {{count}} अक्षरों का होना चाहिए",
+      "error": "केवल अक्षर और संख्याएं ही अनुमत हैं",
+      "errorSplChars": "केवल अक्षर और संख्याएं और {{splChars}} ही अनुमत हैं"
+    },
+    "password": {
+      "length": "पासवर्ड कम से कम {{count}} अक्षरों का होना चाहिए"
+    }
   }
 }
+
+has context menu
