@@ -1,6 +1,5 @@
 import React from 'react';
 import {ActivityIndicator, View, StyleSheet} from 'react-native';
-import {BLACK} from 'appConstants/colors';
 import {useTheme} from 'react-native-paper';
 
 const Loader = () => {

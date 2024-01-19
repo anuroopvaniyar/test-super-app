@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Loader, BaseLayout, Text, Spacer, Button} from 'components';
+import {BaseLayout, Text, Spacer, Button} from 'components';
 import {useTranslation} from 'react-i18next';
 import {StyleSheet, View, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/Octicons';
@@ -16,7 +16,7 @@ import {PERSIST_FIELD_NAMES} from 'types/';
 import {useTheme} from 'react-native-paper';
 import {TEXT_SIZE} from 'types/';
 
-const SignUp = (props: any) => {
+const SignUp = (props: {navigation: Object}) => {
   const {navigation} = props;
   const {t} = useTranslation();
   const dispatch = useDispatch();

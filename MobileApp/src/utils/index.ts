@@ -27,11 +27,13 @@ export const getTextFontSize = (size: TEXT_SIZE) => {
 };
 
 export const isRTLRequired = (languageCode: LANGUAGE_CODES) => {
+  // Add RTL languages in future if needed
   const requiredLanguages = [LANGUAGE_CODES.ARABIC, LANGUAGE_CODES.URDU];
 
   return requiredLanguages.includes(languageCode);
 };
 
+// List of countries currently applicable in the app
 export const getCountriesData = (t: any) => {
   return [
     {
@@ -57,6 +59,7 @@ export const getCountriesData = (t: any) => {
   ];
 };
 
+// List of languages currently applicable in the app
 export const getLanguagesData = (t: any) => {
   return [
     {

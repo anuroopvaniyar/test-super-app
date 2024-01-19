@@ -1,6 +1,5 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet, KeyboardAvoidingView} from 'react-native';
-
 import * as Colors from 'appConstants/colors';
 
 type Props = {
