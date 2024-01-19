@@ -1,5 +1,15 @@
 # test-super-app
 
+## Features
+
+- Multi-country selection
+- Multi-language selection
+- Country based themes
+- Secure storage of username
+- Biometric validation to retreive securely stored username
+- Country based validations
+- Minimum dependencies
+
 ## Version Requirements
 
 - Android API 21+ (5.0)
@@ -15,7 +25,7 @@ https://github.com/anuroopvaniyar/test-super-app.git
 
 ### Step 2 - Installation
 
-### Install package by running below command
+### Install packages by running below command
 
 ```bash
 $ yarn 
