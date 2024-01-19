@@ -9,6 +9,10 @@
 - Biometric validation to retreive securely stored username
 - Country based validations
 
+## Demo
+
+https://github.com/anuroopvaniyar/test-super-app/assets/23024002/56a52a53-0912-45a8-991c-fb5cca12b4c9
+
 ## Version Requirements
 
 - Android API 21+ (5.0)
