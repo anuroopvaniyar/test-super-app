@@ -1,0 +1,73 @@
+{
+  "language": "English",
+  "signUp": {
+    "createAccount": "Create Account",
+    "username": "Username",
+    "email": "Email",
+    "password": "Password",
+    "signUp": "Sign Up",
+    "hasAccount": "Have an account?",
+    "login": "Login"
+  },
+  "login": {
+    "noAccount": "Don’t have an account?",
+    "signUp": "Sign Up",
+    "login": "Login"
+  },
+  "settings": {
+    "title": "Settings"
+  },
+  "selectCountry": {
+    "title": "Select Country",
+    "AE": {
+      "label": "United Arab Emirates"
+    },
+    "EG": {
+      "label": "Egypt"
+    },
+    "IN": {
+      "label": "India"
+    },
+    "PK": {
+      "label": "Pakistan"
+    }
+  },
+  "selectLanguage": {
+    "title": "Select Language",
+    "EN": {
+      "label": "English"
+    },
+    "AR": {
+      "label": "Arabic"
+    },
+    "HI": {
+      "label": "Hindi"
+    },
+    "UR": {
+      "label": "Urdu"
+    }
+  },
+  "dashboard": {
+    "welcome": "Welcome!",
+    "username": "Username",
+    "country": "Country",
+    "language": "Language",
+    "viewUsername": "View Username",
+    "biometricError": "Biometric validation failed!"
+  },
+  "error": {
+    "title": "Oops! Something went wrong.",
+    "msg": "We are working on it.",
+    "cta": "Try again"
+  },
+  "validationError": {
+    "username": {
+      "length": "Username must be a minimum length of {{count}} characters",
+      "error": "Only alphanumeric characters are allowed",
+      "errorSplChars": "Only alphanumeric characters & {{splChars}} are allowed"
+    },
+    "password": {
+      "length": "Password must be a minimum length of {{count}} characters"
+    }
+  }
+}
