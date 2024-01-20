@@ -13,10 +13,16 @@ export enum COUNTRY {
 }
 
 export interface Theme {
-  colors: {
-    primary: string;
-    accent: string;
-    action: string;
+  palette: {
+    primary: {
+      main: string;
+    };
+    secondary: {
+      main: string;
+    };
+    error: {
+      main: string;
+    };
   };
 }
 
