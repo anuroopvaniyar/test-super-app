@@ -5,15 +5,18 @@ import { createTheme } from "@mui/material";
 const baseIndia: Theme = createTheme({
   palette: {
     primary: {
-      main: Colors.PRIMARY
+      main: Colors.PRIMARY,
     },
     secondary: {
-      main: Colors.ACTION
+      main: Colors.ACTION,
     },
     error: {
-      main: Colors.ERROR
-    }
-  }
+      main: Colors.ERROR,
+    },
+    info: {
+      main: Colors.INFO,
+    },
+  },
 });
 
 export default baseIndia;

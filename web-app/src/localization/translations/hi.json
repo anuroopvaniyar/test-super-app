@@ -12,7 +12,8 @@
   "login": {
     "noAccount": "खाता नहीं है?",
     "signUp": "साइन अप",
-    "login": "लॉग इन"
+    "login": "लॉग इन",
+    "changeLanguage": "भाषा बदलें?"
   },
   "settings": {
     "title": "सेटिंग्स"

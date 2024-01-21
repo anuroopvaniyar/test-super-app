@@ -39,3 +39,8 @@ export interface SettingsState {
   country: COUNTRY;
   language: LANGUAGE_CODES;
 }
+
+export enum SETTINGS_FIELD_NAMES {
+  COUNRTY = "country",
+  LANGUAGE = "language",
+}

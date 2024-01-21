@@ -12,7 +12,8 @@
   "login": {
     "noAccount": "اکاؤنٹ نہیں ہے؟",
     "signUp": "سائن اپ",
-    "login": "لاگ ان"
+    "login": "لاگ ان",
+    "changeLanguage": "زبان تبدیل کریں؟"
   },
   "settings": {
     "title": "ترتیبات"

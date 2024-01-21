@@ -12,7 +12,8 @@
   "login": {
     "noAccount": "Don’t have an account?",
     "signUp": "Sign Up",
-    "login": "Sign In"
+    "login": "Sign In",
+    "changeLanguage": "Change language?"
   },
   "settings": {
     "title": "Settings"

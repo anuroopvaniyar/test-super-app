@@ -12,7 +12,8 @@
   "login": {
     "noAccount": "ليس لديك حساب؟",
     "signUp": "التسجيل",
-    "login": "تسجيل الدخول"
+    "login": "تسجيل الدخول",
+    "changeLanguage": "تغيير اللغة؟"
   },
   "settings": {
     "title": "الإعدادات"

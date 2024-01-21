@@ -10,15 +10,15 @@ import { useTranslation } from "react-i18next";
 import { SIGNUP_INPUTS } from "../types";
 import { ROUTE_DASHBOARD } from "../constants/routes";
 import { useNavigate } from "react-router-dom";
-import useAppSettings from "../hooks/useAppSettings";
+import Link from "@mui/material/Link";
+import Grid from "@mui/material/Grid";
+import SelectLanguage from "../uiviews/SelectLanguage";
 
 const Login = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
-  const { country, language } = useAppSettings();
-  console.log("settings ", country);
-  console.log("settings ", language);
+  const [selectLanguage, setSelectLanguage] = React.useState(false);
 
   const handleSubmit = () => navigate(ROUTE_DASHBOARD);
 
@@ -35,7 +35,7 @@ const Login = () => {
         <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
           <LockOutlinedIcon />
         </Avatar>
-        <Text component="h1" variant="h5">
+        <Text component="h1" variant="h5" mt={4}>
           {t("login.login")}
         </Text>
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
@@ -66,6 +66,21 @@ const Login = () => {
           >
             {t("login.login")}
           </Button>
+          <Grid container>
+            <Grid item>
+              <Link
+                href="#"
+                variant="body2"
+                onClick={() => setSelectLanguage(true)}
+              >
+                {t("login.changeLanguage")}
+              </Link>
+            </Grid>
+          </Grid>
+          <SelectLanguage
+            show={selectLanguage}
+            onDismiss={() => setSelectLanguage(false)}
+          />
         </Box>
       </Box>
     </Container>
