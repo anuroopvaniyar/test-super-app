@@ -1,0 +1,74 @@
+{
+  "language": "Urdu",
+  "signUp": {
+    "createAccount": "اکاؤنٹ بنائیں",
+    "username": "صارف کا نام",
+    "email": "ای میل",
+    "password": "پاس ورڈ",
+    "signUp": "سائن اپ",
+    "hasAccount": "کیا آپکا اکاؤنٹ ہے؟",
+    "login": "لاگ ان"
+  },
+  "login": {
+    "noAccount": "اکاؤنٹ نہیں ہے؟",
+    "signUp": "سائن اپ",
+    "login": "لاگ ان",
+    "changeLanguage": "زبان تبدیل کریں؟"
+  },
+  "settings": {
+    "title": "ترتیبات"
+  },
+  "selectCountry": {
+    "title": "ملک کا انتخاب کریں",
+    "AE": {
+      "label": "متحدہ عرب امارات"
+    },
+    "EG": {
+      "label": "مصر"
+    },
+    "IN": {
+      "label": "بھارت"
+    },
+    "PK": {
+      "label": "پاکستان"
+    }
+  },
+  "selectLanguage": {
+    "title": "زبان کا انتخاب کریں",
+    "EN": {
+      "label": "English"
+    },
+    "AR": {
+      "label": "Arabic"
+    },
+    "HI": {
+      "label": "Hindi"
+    },
+    "UR": {
+      "label": "Urdu"
+    }
+  },
+  "dashboard": {
+    "welcome": "خوش آمدید!",
+    "username": "صارف کا نام",
+    "country": "ملک",
+    "language": "زبان",
+    "viewUsername": "صارف کا نام دیکھیں",
+    "biometricError": "بائیومیٹرک تصدیق ناکام ہوگئی!"
+  },
+  "error": {
+    "title": "الٹ! کچھ غلط ہوگیا ہے۔",
+    "msg": "ہم اس پر کام کر رہے ہیں۔",
+    "cta": "دوبارہ کوشش کریں"
+  },
+  "validationError": {
+    "username": {
+      "length": "صارف کا نام کم سے کم {{count}} حروف کا ہونا چاہئے",
+      "error": "صرف حروف اور عددی ہونے چاہئے",
+      "errorSplChars": "صرف حروف اور عددی اور {{splChars}} ہونے چاہئے"
+    },
+    "password": {
+      "length": "پاس ورڈ کم سے کم {{count}} حروف کا ہونا چاہئے"
+    }
+  }
+}

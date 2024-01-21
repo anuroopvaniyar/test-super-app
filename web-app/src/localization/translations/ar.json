@@ -1,0 +1,74 @@
+{
+  "language": "Arabic",
+  "signUp": {
+    "createAccount": "إنشاء حساب",
+    "username": "اسم المستخدم",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "signUp": "التسجيل",
+    "hasAccount": "لديك حساب؟",
+    "login": "تسجيل الدخول"
+  },
+  "login": {
+    "noAccount": "ليس لديك حساب؟",
+    "signUp": "التسجيل",
+    "login": "تسجيل الدخول",
+    "changeLanguage": "تغيير اللغة؟"
+  },
+  "settings": {
+    "title": "الإعدادات"
+  },
+  "selectCountry": {
+    "title": "اختيار الدولة",
+    "AE": {
+      "label": "الإمارات العربية المتحدة"
+    },
+    "EG": {
+      "label": "مصر"
+    },
+    "IN": {
+      "label": "الهند"
+    },
+    "PK": {
+      "label": "باكستان"
+    }
+  },
+  "selectLanguage": {
+    "title": "اختيار اللغة",
+    "EN": {
+      "label": "English"
+    },
+    "AR": {
+      "label": "Arabic"
+    },
+    "HI": {
+      "label": "Hindi"
+    },
+    "UR": {
+      "label": "Urdu"
+    }
+  },
+  "dashboard": {
+    "welcome": "مرحبًا!",
+    "username": "اسم المستخدم",
+    "country": "الدولة",
+    "language": "اللغة",
+    "viewUsername": "عرض اسم المستخدم",
+    "biometricError": "فشل التحقق الحيوي!"
+  },
+  "error": {
+    "title": "عفوًا! حدث خطأ ما.",
+    "msg": "نحن نعمل على ذلك.",
+    "cta": "حاول مرة أخرى"
+  },
+  "validationError": {
+    "username": {
+      "length": "يجب أن يكون اسم المستخدم على الأقل {{count}} أحرف",
+      "error": "يسمح فقط بالأحرف الأبجدية والأرقام",
+      "errorSplChars": "يسمح فقط بالأحرف الأبجدية والأرقام و{{splChars}}"
+    },
+    "password": {
+      "length": "يجب أن تكون كلمة المرور على الأقل {{count}} أحرف"
+    }
+  }
+}
