@@ -1,15 +1,17 @@
 import React from "react";
 import "./App.css";
 import { ThemeProvider } from "@mui/material";
-import { COUNTRY } from "./types";
 import { getTheme } from "./utils";
 import AppRoute from "./route";
+import useAppSettings from "./hooks/useAppSettings";
 
 function App() {
+  const { country } = useAppSettings();
+
   return (
     <ThemeProvider
       theme={getTheme({
-        countryCode: COUNTRY.IN
+        countryCode: country,
       })}
     >
       <AppRoute />

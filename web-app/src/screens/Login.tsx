@@ -10,10 +10,15 @@ import { useTranslation } from "react-i18next";
 import { SIGNUP_INPUTS } from "../types";
 import { ROUTE_DASHBOARD } from "../constants/routes";
 import { useNavigate } from "react-router-dom";
+import useAppSettings from "../hooks/useAppSettings";
 
-const Login = (props: any) => {
+const Login = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
+
+  const { country, language } = useAppSettings();
+  console.log("settings ", country);
+  console.log("settings ", language);
 
   const handleSubmit = () => navigate(ROUTE_DASHBOARD);
 

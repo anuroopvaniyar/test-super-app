@@ -2,14 +2,14 @@ export enum LANGUAGE_CODES {
   ENGLISH = "en",
   ARABIC = "ar",
   URDU = "ur",
-  HINDI = "hi"
+  HINDI = "hi",
 }
 
 export enum COUNTRY {
   AE = "AE",
   IN = "IN",
   PK = "PK",
-  EG = "EG"
+  EG = "EG",
 }
 
 export interface Theme {
@@ -28,5 +28,14 @@ export interface Theme {
 
 export enum SIGNUP_INPUTS {
   USERNAME = "username",
-  PASSWORD = "password"
+  PASSWORD = "password",
+}
+
+export interface AppRootState {
+  settings: SettingsState;
+}
+
+export interface SettingsState {
+  country: COUNTRY;
+  language: LANGUAGE_CODES;
 }

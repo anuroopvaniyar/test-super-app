@@ -16,9 +16,11 @@ const Dashboard = () => {
       <Text component="h1" variant="h6" noWrap sx={{ flexGrow: 1 }}>
         {t("dashboard.welcome")}
       </Text>
-      <Text color={BLACK}>
-        {t("dashboard.country")} - {country}
-      </Text>
+      <Box mt={4} mb={2}>
+        <Text color={BLACK}>
+          {t("dashboard.country")} - {country}
+        </Text>
+      </Box>
       <Text color={BLACK}>
         {t("dashboard.language")} - {language}
       </Text>
