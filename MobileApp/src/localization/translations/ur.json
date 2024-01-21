@@ -7,12 +7,14 @@
     "password": "پاس ورڈ",
     "signUp": "سائن اپ",
     "hasAccount": "کیا آپکا اکاؤنٹ ہے؟",
-    "login": "لاگ ان"
+    "login": "لاگ ان",
+    "existingUser": "موجودہ صارف۔ سائن ان کریں."
   },
   "login": {
     "noAccount": "اکاؤنٹ نہیں ہے؟",
     "signUp": "سائن اپ",
-    "login": "لاگ ان"
+    "login": "لاگ ان",
+    "invalidCredentials": "جعلی اسناد. دوبارہ کوشش کریں."
   },
   "settings": {
     "title": "ترتیبات"

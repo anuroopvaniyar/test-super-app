@@ -6,15 +6,21 @@ import Icon from 'react-native-vector-icons/Octicons';
 import {BLACK} from 'appConstants/colors';
 import {ROUTE_SETTINGS, ROUTE_DASHBOARD} from 'appConstants/routes';
 import useValidateSignUp from 'hooks/useValidateSignUp';
-import {SIGNUP_INPUTS} from 'types/';
+import {SIGNUP_INPUTS, COUNTRY, TEXT_SIZE, PERSIST_FIELD_NAMES} from 'types';
 import TextInputWithController from 'components/TextInputWIthController';
 import SelectCountry from 'src/uiviews/selectCountry';
 import {useAppSettings} from 'hooks';
-import {useDispatch} from 'react-redux';
-import {setValue} from 'src/state/actions';
-import {PERSIST_FIELD_NAMES} from 'types/';
+import {useDispatch, useSelector} from 'react-redux';
+import {
+  createSuperAppUser,
+  fetchAllSuperAppUsers,
+  setValue,
+} from 'src/state/actions';
 import {useTheme} from 'react-native-paper';
-import {TEXT_SIZE} from 'types/';
+import Loader from 'components/Loader';
+import {get, isNil} from 'lodash';
+import Toast from 'react-native-toast-message';
+import {isExistingUser} from 'src/utils';
 
 const SignUp = (props: {navigation: Object}) => {
   const {navigation} = props;
@@ -24,25 +30,79 @@ const SignUp = (props: {navigation: Object}) => {
 
   const {row, link, icon} = styles(theme);
 
-  const {firstLaunch} = useAppSettings();
+  const {firstLaunch, country = COUNTRY.AE} = useAppSettings();
   const [showSignUp, setShowSignUp] = useState(firstLaunch);
   const [showCountryList, setShowCountryList] = useState(false);
+  const [errorText, setErrorText] = useState('');
+
+  const usersData = useSelector(state => state.getUsers) ?? {};
+  const {loading: usersDataLoading, response: allUsersData = []} =
+    usersData ?? {};
+
+  const creatUserData = useSelector(state => state.createUser) ?? {};
+  const {loading} = creatUserData ?? {};
 
   useEffect(() => {
     firstLaunch && setShowCountryList(true);
+    dispatch(fetchAllSuperAppUsers());
   }, []);
 
-  const {control, errors, getValues, formState} = useValidateSignUp();
+  useEffect(() => {
+    const response = get(creatUserData, ['response']);
+    const error = get(creatUserData, ['error']);
+
+    if (!isNil(response)) {
+      navigation.navigate(ROUTE_DASHBOARD);
+    }
+
+    if (!isNil(error)) {
+      setErrorText(t('error.title'));
+    }
+  }, [creatUserData]);
+
+  const {control, errors, formState, watch} = useValidateSignUp();
+  const username = watch(SIGNUP_INPUTS.USERNAME);
+  const password = watch(SIGNUP_INPUTS.PASSWORD);
 
   const renderSettings = () => {
     navigation.navigate(ROUTE_SETTINGS);
   };
 
   const onSignUp = () => {
-    dispatch(
-      setValue(PERSIST_FIELD_NAMES.USERNAME, getValues(SIGNUP_INPUTS.USERNAME)),
-    );
-    navigation.navigate(ROUTE_DASHBOARD);
+    const existingUser = isExistingUser(allUsersData, {
+      username,
+      password,
+      country,
+    });
+
+    if (!existingUser) {
+      // Not an existing user - so user is created
+      dispatch(setValue(PERSIST_FIELD_NAMES.USERNAME, username));
+      dispatch(
+        createSuperAppUser({
+          username,
+          password,
+          country,
+        }),
+      );
+    } else {
+      setErrorText(t('signUp.existingUser'));
+    }
+  };
+
+  const onLogin = () => {
+    const validUser = isExistingUser(allUsersData, {
+      username,
+      password,
+      country,
+    });
+
+    if (validUser) {
+      // Existing user - so logs in
+      navigation.navigate(ROUTE_DASHBOARD);
+    } else {
+      setErrorText(t('login.invalidCredentials'));
+    }
   };
 
   const renderInputFields = () => {
@@ -128,7 +188,7 @@ const SignUp = (props: {navigation: Object}) => {
         <Spacer />
         <Button
           mode="contained"
-          onPress={onSignUp}
+          onPress={onLogin}
           disabled={!formState?.isValid}>
           {t('login.login')}
         </Button>
@@ -140,6 +200,22 @@ const SignUp = (props: {navigation: Object}) => {
       </>
     );
   };
+
+  const showErrorToast = () => {
+    Toast.show({
+      type: 'error',
+      text1: errorText,
+    });
+    setErrorText('');
+  };
+
+  if (usersDataLoading || loading) {
+    return (
+      <BaseLayout style={{justifyContent: 'center'}}>
+        <Loader />
+      </BaseLayout>
+    );
+  }
 
   return (
     <BaseLayout style={{justifyContent: 'center'}}>
@@ -157,6 +233,7 @@ const SignUp = (props: {navigation: Object}) => {
           hideBackButton
         />
       )}
+      {!!errorText && showErrorToast()}
     </BaseLayout>
   );
 };

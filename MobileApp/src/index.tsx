@@ -10,6 +10,7 @@ import {BLACK} from 'appConstants/colors';
 import ErrorBoundary from 'react-native-error-boundary';
 import {Spacer} from './components';
 import RNRestart from 'react-native-restart';
+import Toast from 'react-native-toast-message';
 
 const SuperApp = () => {
   const navigationRef = useRef();
@@ -42,6 +43,7 @@ const SuperApp = () => {
       <NavigationContainer ref={navigationRef}>
         <ErrorBoundary FallbackComponent={CustomFallback}>
           <AppNavigator />
+          <Toast />
         </ErrorBoundary>
       </NavigationContainer>
     </ThemeProvider>

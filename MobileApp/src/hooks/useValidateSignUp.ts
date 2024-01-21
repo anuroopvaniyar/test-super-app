@@ -17,7 +17,7 @@ const useValidateSignUp = () => {
     t,
   );
 
-  const {control, formState, handleSubmit, getValues, errors} = useForm({
+  const {control, formState, handleSubmit, getValues, errors, watch} = useForm({
     mode: 'onChange',
     reValidateMode: 'onChange',
     resolver: yupResolver(
@@ -55,6 +55,7 @@ const useValidateSignUp = () => {
     getValues,
     errors,
     formState,
+    watch,
   };
 };
 
