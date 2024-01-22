@@ -22,6 +22,7 @@ import { useTheme } from "@mui/material/styles";
 import useAppSettings from "../hooks/useAppSettings";
 import { useDispatch } from "react-redux";
 import { setValue } from "../state/actions";
+import { randomString } from "../utils";
 
 const Login = () => {
   const theme = useTheme();
@@ -41,17 +42,28 @@ const Login = () => {
 
   useEffect(() => {
     if (data !== null) {
-      console.log("enteredData ", enteredData);
-      const existingUser = data?.find(
-        (user: { username: string; password: string }) =>
-          user?.username?.toLowerCase() ===
-            enteredData?.username?.toLocaleLowerCase() &&
-          user?.password?.toLowerCase() ===
-            enteredData?.password?.toLocaleLowerCase()
-      );
+      handleLogin(data);
+    }
+  }, [data]);
 
-      if (existingUser) {
-        dispatch(setValue(SETTINGS_FIELD_NAMES.COUNRTY, existingUser?.country));
+  const handleLogin = (data: Array<SignInType>) => {
+    const existingUser = data?.find(
+      (user: { username: string; password: string }) =>
+        user?.username?.toLowerCase() ===
+          enteredData?.username?.toLocaleLowerCase() &&
+        user?.password?.toLowerCase() ===
+          enteredData?.password?.toLocaleLowerCase()
+    );
+
+    if (existingUser) {
+      dispatch(setValue(SETTINGS_FIELD_NAMES.COUNRTY, existingUser?.country));
+      localStorage.clear();
+
+      // This should come from backend
+      const token = randomString() + randomString();
+      localStorage.setItem("user-token", token);
+
+      setTimeout(() => {
         navigate(ROUTE_DASHBOARD, {
           state: {
             username: existingUser?.username,
@@ -59,11 +71,11 @@ const Login = () => {
             language,
           },
         });
-      } else {
-        setUserNotFound(true);
-      }
+      }, 500);
+    } else {
+      setUserNotFound(true);
     }
-  }, [data]);
+  };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();

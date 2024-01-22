@@ -4,21 +4,31 @@ import Box from "@mui/material/Box";
 import Text from "../components/Text";
 import { useTranslation } from "react-i18next";
 import { BLACK } from "../constants/colors";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { AppBar, Button, Toolbar, useTheme } from "@mui/material";
 
 const Dashboard = () => {
   const theme = useTheme();
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const { state = {} } = useLocation();
 
   const { username, country, language } = state;
+
+  const logout = () => {
+    localStorage.clear();
+    navigate("/");
+  };
+
+  window.onpopstate = () => {
+    navigate("/");
+  };
 
   return (
     <>
       <AppBar color="inherit">
         <Toolbar>
-          <Button onClick={() => {}} color={"info"}>
+          <Button onClick={logout} color={"info"}>
             {"Logout"}
           </Button>
         </Toolbar>
