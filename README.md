@@ -8,6 +8,7 @@ https://github.com/anuroopvaniyar/test-super-app/assets/23024002/56a52a53-0912-4
 
 - Android API 21+ (5.0)
 - Min iOS 13.0
+- Node 16
 
 ## Getting Started
 
