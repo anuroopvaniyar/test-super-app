@@ -1,7 +1,7 @@
 import {useSelector} from 'react-redux';
 
 const useAppSettings = () => {
-  const settings = useSelector(state => state.settings);
+  const settings = useSelector(state => state.userData.settings) ?? {};
 
   return settings;
 };

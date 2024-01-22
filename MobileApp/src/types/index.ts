@@ -37,3 +37,9 @@ export enum SIGNUP_INPUTS {
   USERNAME = 'username',
   PASSWORD = 'password',
 }
+
+export interface SuperAppUserData {
+  country: COUNTRY;
+  username: string;
+  password: string;
+}

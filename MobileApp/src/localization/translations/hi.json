@@ -7,12 +7,14 @@
     "password": "पासवर्ड",
     "signUp": "साइन अप",
     "hasAccount": "क्या आपका खाता है?",
-    "login": "लॉग इन"
+    "login": "लॉग इन",
+    "existingUser": "मौजूदा उपयोगकर्ता। साइन इन करें।"
   },
   "login": {
     "noAccount": "खाता नहीं है?",
     "signUp": "साइन अप",
-    "login": "लॉग इन"
+    "login": "लॉग इन",
+    "invalidCredentials": "अवैध प्रत्यय पत्र। कृपया पुन: प्रयास करें।"
   },
   "settings": {
     "title": "सेटिंग्स"

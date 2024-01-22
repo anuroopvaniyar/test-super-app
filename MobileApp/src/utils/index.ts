@@ -5,6 +5,8 @@ import {SPCL_CHAR} from 'appConstants/keys';
 import {NUMBER_FIVE, NUMBER_SEVEN, NUMBER_SIX} from 'appConstants';
 import {SPCL_CHAR_EG} from 'appConstants/';
 import {SPCL_CHAR_PK} from 'appConstants/';
+import {SuperAppUserData} from 'types/index';
+import {find} from 'lodash';
 
 export const getTextFontSize = (size: TEXT_SIZE) => {
   const fontSizes = {
@@ -129,4 +131,68 @@ export const getUsernameValidationConfigByCountry = (
       minLength: NUMBER_FIVE,
     }
   );
+};
+
+export const isExistingUser = (
+  usersData: Array<SuperAppUserData>,
+  enteredUserData: SuperAppUserData,
+) => {
+  return find(
+    usersData,
+    user =>
+      user?.username?.toLowerCase() ===
+        enteredUserData?.username.toLowerCase() &&
+      user?.password?.toLowerCase() ===
+        enteredUserData?.password.toLowerCase() &&
+      user?.country === enteredUserData?.country,
+  );
+};
+
+export const getInitialState = () => {
+  return {
+    loading: false,
+    response: null,
+    error: null,
+  };
+};
+
+export const getReducerForApi = actions => {
+  const initialState = getInitialState();
+  const {success, request, failure, clear} = actions;
+
+  return (state = initialState, action: any) => {
+    switch (action.type) {
+      case request:
+        return {
+          ...state,
+          loading: true,
+          response: null,
+          error: null,
+        };
+
+      case success:
+        return {
+          ...state,
+          loading: false,
+          response: action.payload,
+          error: null,
+        };
+
+      case failure:
+        return {
+          ...state,
+          loading: false,
+          response: null,
+          error: action.payload,
+        };
+
+      case clear:
+        return {
+          ...initialState,
+        };
+
+      default:
+        return state;
+    }
+  };
 };

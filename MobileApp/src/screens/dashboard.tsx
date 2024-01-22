@@ -12,6 +12,8 @@ import {ENCRYPTED_USERNAME} from 'appConstants/keys';
 import {Selector} from 'components';
 import ReactNativeBiometrics from 'react-native-biometrics';
 import {useTheme} from 'react-native-paper';
+import {useDispatch} from 'react-redux';
+import {clearCreateSuperAppUser} from 'src/state/actions';
 
 const Dashboard = (props: {navigation: Object}) => {
   const {navigation} = props;
@@ -23,6 +25,8 @@ const Dashboard = (props: {navigation: Object}) => {
     language = LANGUAGE_CODES.ENGLISH,
     username = '',
   } = useAppSettings();
+
+  const dispatch = useDispatch();
 
   const {t} = useTranslation();
 
@@ -60,6 +64,7 @@ const Dashboard = (props: {navigation: Object}) => {
   };
 
   const logOut = () => {
+    dispatch(clearCreateSuperAppUser());
     navigation.replace(ROUTE_SIGN_UP);
   };
 
