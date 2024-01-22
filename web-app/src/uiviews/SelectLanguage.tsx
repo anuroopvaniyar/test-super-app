@@ -22,7 +22,7 @@ const SelectLanguage = (props: { show: boolean; onDismiss: () => void }) => {
   const dispatch = useDispatch();
 
   const onSelection = (languageCode: LANGUAGE_CODES) => {
-    dispatch(setValue(SETTINGS_FIELD_NAMES.LANGUAGE, language));
+    dispatch(setValue(SETTINGS_FIELD_NAMES.LANGUAGE, languageCode));
     const isRTLNeeded = isRTLRequired(languageCode);
 
     // Apply the language change
