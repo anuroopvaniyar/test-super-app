@@ -23,7 +23,7 @@ import useAppSettings from "../hooks/useAppSettings";
 import { useDispatch } from "react-redux";
 import { setValue } from "../state/actions";
 import { getDecryptedValue, randomString } from "../utils";
-import { AppBar, Toolbar } from "@mui/material";
+import { AppBar, CircularProgress, Toolbar } from "@mui/material";
 
 const Login = () => {
   const theme = useTheme();
@@ -63,15 +63,13 @@ const Login = () => {
       const token = randomString() + randomString();
       localStorage.setItem("user-token", token);
 
-      setTimeout(() => {
-        navigate(ROUTE_DASHBOARD, {
-          state: {
-            username: existingUser?.username,
-            country: existingUser?.country,
-            language,
-          },
-        });
-      }, 500);
+      navigate(ROUTE_DASHBOARD, {
+        state: {
+          username: existingUser?.username,
+          country: existingUser?.country,
+          language,
+        },
+      });
     } else {
       setUserNotFound(true);
     }
@@ -89,6 +87,25 @@ const Login = () => {
     userNotFound && setUserNotFound(false);
     fetchData(`${API_BASE_URL}/${FETCH_ALL_SUPER_APP_USERS_ENDPOINT}`);
   };
+
+  if (loading) {
+    return (
+      <Box
+        sx={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <CircularProgress />;
+      </Box>
+    );
+  }
 
   return (
     <Container component="main" maxWidth="xs">
