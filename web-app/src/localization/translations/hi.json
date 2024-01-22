@@ -13,7 +13,8 @@
     "noAccount": "खाता नहीं है?",
     "signUp": "साइन अप",
     "login": "लॉग इन",
-    "changeLanguage": "भाषा बदलें?"
+    "changeLanguage": "भाषा बदलें?",
+    "invalidCredentials": "अवैध प्रत्यय पत्र। कृपया पुन: प्रयास करें।"
   },
   "settings": {
     "title": "सेटिंग्स"

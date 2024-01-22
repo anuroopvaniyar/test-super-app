@@ -13,7 +13,8 @@
     "noAccount": "اکاؤنٹ نہیں ہے؟",
     "signUp": "سائن اپ",
     "login": "لاگ ان",
-    "changeLanguage": "زبان تبدیل کریں؟"
+    "changeLanguage": "زبان تبدیل کریں؟",
+    "invalidCredentials": "جعلی اسناد. دوبارہ کوشش کریں."
   },
   "settings": {
     "title": "ترتیبات"

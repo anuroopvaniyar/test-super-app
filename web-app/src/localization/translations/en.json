@@ -13,7 +13,8 @@
     "noAccount": "Don’t have an account?",
     "signUp": "Sign Up",
     "login": "Sign In",
-    "changeLanguage": "Change language?"
+    "changeLanguage": "Change language?",
+    "invalidCredentials": "Invalid Credentials. Please try again."
   },
   "settings": {
     "title": "Settings"

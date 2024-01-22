@@ -6,12 +6,13 @@ import {
   NUMBER_SEVEN,
   NUMBER_SIX,
   SPCL_CHAR_EG,
-  SPCL_CHAR_PK
+  SPCL_CHAR_PK,
 } from "../constants";
 import { default as themeUae } from "../theme/variants/AE";
 import { default as themeEgypt } from "../theme/variants/EG";
 import { default as themeIndia } from "../theme/variants/IN";
 import { default as themePakistan } from "../theme/variants/PK";
+import { decode } from "base-64";
 
 export const getTheme = (themeInfo: { countryCode: COUNTRY }) => {
   const { countryCode } = themeInfo;
@@ -19,7 +20,7 @@ export const getTheme = (themeInfo: { countryCode: COUNTRY }) => {
     [COUNTRY.AE]: themeUae,
     [COUNTRY.EG]: themeEgypt,
     [COUNTRY.IN]: themeIndia,
-    [COUNTRY.PK]: themePakistan
+    [COUNTRY.PK]: themePakistan,
   };
 
   return themes[countryCode] ?? themeUae;
@@ -38,23 +39,23 @@ export const getCountriesData = (t: any) => {
     {
       id: 1,
       label: t("selectCountry.AE.label"),
-      value: COUNTRY.AE
+      value: COUNTRY.AE,
     },
     {
       id: 2,
       label: t("selectCountry.EG.label"),
-      value: COUNTRY.EG
+      value: COUNTRY.EG,
     },
     {
       id: 3,
       label: t("selectCountry.IN.label"),
-      value: COUNTRY.IN
+      value: COUNTRY.IN,
     },
     {
       id: 4,
       label: t("selectCountry.PK.label"),
-      value: COUNTRY.PK
-    }
+      value: COUNTRY.PK,
+    },
   ];
 };
 
@@ -64,23 +65,23 @@ export const getLanguagesData = (t: any) => {
     {
       id: 1,
       label: t("selectLanguage.EN.label"),
-      value: LANGUAGE_CODES.ENGLISH
+      value: LANGUAGE_CODES.ENGLISH,
     },
     {
       id: 2,
       label: t("selectLanguage.AR.label"),
-      value: LANGUAGE_CODES.ARABIC
+      value: LANGUAGE_CODES.ARABIC,
     },
     {
       id: 3,
       label: t("selectLanguage.HI.label"),
-      value: LANGUAGE_CODES.HINDI
+      value: LANGUAGE_CODES.HINDI,
     },
     {
       id: 4,
       label: t("selectLanguage.UR.label"),
-      value: LANGUAGE_CODES.URDU
-    }
+      value: LANGUAGE_CODES.URDU,
+    },
   ];
 };
 
@@ -92,7 +93,7 @@ export const getUsernameValidationConfigByCountry = (
     [COUNTRY.AE]: {
       regex: Regex.ALPHA_NUMERIC_ONLY,
       errorText: t("validationError.username.error"),
-      minLength: NUMBER_FIVE
+      minLength: NUMBER_FIVE,
     },
     [COUNTRY.EG]: {
       regex: Regex.ALPHA_NUMERIC_SPL_CHARS_ONLY.replace(
@@ -100,14 +101,14 @@ export const getUsernameValidationConfigByCountry = (
         SPCL_CHAR_EG
       ),
       errorText: t("validationError.username.errorSplChars", {
-        splChars: SPCL_CHAR_EG
+        splChars: SPCL_CHAR_EG,
       }),
-      minLength: NUMBER_SEVEN
+      minLength: NUMBER_SEVEN,
     },
     [COUNTRY.IN]: {
       regex: Regex.ALPHA_NUMERIC_STARTING_WITH_LETTER,
       errorText: t("validationError.username.error"),
-      minLength: NUMBER_SIX
+      minLength: NUMBER_SIX,
     },
     [COUNTRY.PK]: {
       regex: Regex.ALPHA_NUMERIC_SPL_CHARS_ONLY.replace(
@@ -115,17 +116,23 @@ export const getUsernameValidationConfigByCountry = (
         SPCL_CHAR_PK
       ),
       errorText: t("validationError.username.errorSplChars", {
-        splChars: SPCL_CHAR_PK
+        splChars: SPCL_CHAR_PK,
       }),
-      minLength: NUMBER_SEVEN
-    }
+      minLength: NUMBER_SEVEN,
+    },
   };
 
   return (
     validations[countryCode] ?? {
       regex: Regex.ALPHA_NUMERIC_ONLY,
       errorText: t("validationError.username.error"),
-      minLength: NUMBER_FIVE
+      minLength: NUMBER_FIVE,
     }
   );
 };
+
+export const randomString = () => Math.random().toString(36).substring(2);
+
+// Implement strong encryption/decryption technique
+export const getDecryptedValue = (encryptedString: string) =>
+  decode(encryptedString);

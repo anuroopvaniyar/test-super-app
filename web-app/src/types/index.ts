@@ -44,3 +44,9 @@ export enum SETTINGS_FIELD_NAMES {
   COUNRTY = "country",
   LANGUAGE = "language",
 }
+
+export interface SignInType {
+  username: string;
+  password: string;
+  country?: COUNTRY;
+}

@@ -20,7 +20,7 @@ import {useTheme} from 'react-native-paper';
 import Loader from 'components/Loader';
 import {get, isNil} from 'lodash';
 import Toast from 'react-native-toast-message';
-import {isExistingUser} from 'src/utils';
+import {getEncryptedValue, isExistingUser} from 'src/utils';
 
 const SignUp = (props: {navigation: Object}) => {
   const {navigation} = props;
@@ -81,7 +81,7 @@ const SignUp = (props: {navigation: Object}) => {
       dispatch(
         createSuperAppUser({
           username,
-          password,
+          password: getEncryptedValue(password),
           country,
         }),
       );

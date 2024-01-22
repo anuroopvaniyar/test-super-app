@@ -7,6 +7,7 @@ import {SPCL_CHAR_EG} from 'appConstants/';
 import {SPCL_CHAR_PK} from 'appConstants/';
 import {SuperAppUserData} from 'types/index';
 import {find} from 'lodash';
+import {decode, encode} from 'base-64';
 
 export const getTextFontSize = (size: TEXT_SIZE) => {
   const fontSizes = {
@@ -142,8 +143,7 @@ export const isExistingUser = (
     user =>
       user?.username?.toLowerCase() ===
         enteredUserData?.username.toLowerCase() &&
-      user?.password?.toLowerCase() ===
-        enteredUserData?.password.toLowerCase() &&
+      getDecryptedValue(user?.password) === enteredUserData?.password &&
       user?.country === enteredUserData?.country,
   );
 };
@@ -196,3 +196,10 @@ export const getReducerForApi = actions => {
     }
   };
 };
+
+// Implement strong encryption/decryption technique
+export const getEncryptedValue = (text: string) => encode(text);
+
+// Implement strong encryption/decryption technique
+export const getDecryptedValue = (encryptedString: string) =>
+  decode(encryptedString);

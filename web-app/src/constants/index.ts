@@ -4,3 +4,5 @@ export const NUMBER_SEVEN = 7;
 export const SPCL_CHAR_EG = "@";
 export const SPCL_CHAR_PK = "-";
 export const SPCL_CHAR = "splChars";
+export const RTL = "rtl";
+export const LTR = "ltr";

@@ -13,7 +13,8 @@
     "noAccount": "ليس لديك حساب؟",
     "signUp": "التسجيل",
     "login": "تسجيل الدخول",
-    "changeLanguage": "تغيير اللغة؟"
+    "changeLanguage": "تغيير اللغة؟",
+    "invalidCredentials": "بيانات الاعتماد غير صالحة. حاول مرة اخرى."
   },
   "settings": {
     "title": "الإعدادات"
