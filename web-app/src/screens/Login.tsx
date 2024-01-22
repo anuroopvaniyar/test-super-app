@@ -22,7 +22,7 @@ import { useTheme } from "@mui/material/styles";
 import useAppSettings from "../hooks/useAppSettings";
 import { useDispatch } from "react-redux";
 import { setValue } from "../state/actions";
-import { randomString } from "../utils";
+import { getDecryptedValue, randomString } from "../utils";
 
 const Login = () => {
   const theme = useTheme();
@@ -51,8 +51,7 @@ const Login = () => {
       (user: { username: string; password: string }) =>
         user?.username?.toLowerCase() ===
           enteredData?.username?.toLocaleLowerCase() &&
-        user?.password?.toLowerCase() ===
-          enteredData?.password?.toLocaleLowerCase()
+        getDecryptedValue(user?.password) === enteredData?.password
     );
 
     if (existingUser) {

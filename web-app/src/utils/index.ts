@@ -12,6 +12,7 @@ import { default as themeUae } from "../theme/variants/AE";
 import { default as themeEgypt } from "../theme/variants/EG";
 import { default as themeIndia } from "../theme/variants/IN";
 import { default as themePakistan } from "../theme/variants/PK";
+import { decode } from "base-64";
 
 export const getTheme = (themeInfo: { countryCode: COUNTRY }) => {
   const { countryCode } = themeInfo;
@@ -131,3 +132,7 @@ export const getUsernameValidationConfigByCountry = (
 };
 
 export const randomString = () => Math.random().toString(36).substring(2);
+
+// Implement strong encryption/decryption technique
+export const getDecryptedValue = (encryptedString: string) =>
+  decode(encryptedString);

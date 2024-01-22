@@ -13,6 +13,7 @@ import { LANGUAGE_CODES, SETTINGS_FIELD_NAMES } from "../types";
 import { useDispatch } from "react-redux";
 import { setValue } from "../state/actions";
 import Box from "@mui/material/Box";
+import { LTR, RTL } from "../constants";
 
 const SelectLanguage = (props: { show: boolean; onDismiss: () => void }) => {
   const { show = false, onDismiss } = props;
@@ -26,7 +27,7 @@ const SelectLanguage = (props: { show: boolean; onDismiss: () => void }) => {
 
     // Apply the language change
     i18n.changeLanguage(languageCode);
-    //I18nManager.forceRTL(isRTLNeeded);
+    document.body.style.direction = isRTLNeeded ? RTL : LTR;
 
     onDismiss && onDismiss();
   };
