@@ -27,7 +27,7 @@ https://github.com/anuroopvaniyar/test-super-app.git
 - Multi-language selection
 - Country based themes
 - Secure storage of username
-- Biometric validation to retreive securely stored username
+- Biometric validation to securely retreive stored username
 - Encoded password storage
 - Country based validations
 - Error boundary
