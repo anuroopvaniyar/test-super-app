@@ -23,6 +23,7 @@ import useAppSettings from "../hooks/useAppSettings";
 import { useDispatch } from "react-redux";
 import { setValue } from "../state/actions";
 import { getDecryptedValue, randomString } from "../utils";
+import { AppBar, Toolbar } from "@mui/material";
 
 const Login = () => {
   const theme = useTheme();
@@ -91,15 +92,18 @@ const Login = () => {
 
   return (
     <Container component="main" maxWidth="xs">
+      <AppBar color="primary">
+        <Toolbar sx={{ justifyContent: "flex-end" }}></Toolbar>
+      </AppBar>
       <Box
         sx={{
-          marginTop: 8,
+          marginTop: 24,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
         }}
       >
-        <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+        <Avatar sx={{ m: 1, bgcolor: "primary.main" }}>
           <LockOutlinedIcon />
         </Avatar>
         <Text component="h1" variant="h5" mt={4}>

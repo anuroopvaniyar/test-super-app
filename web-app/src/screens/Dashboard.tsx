@@ -5,10 +5,10 @@ import Text from "../components/Text";
 import { useTranslation } from "react-i18next";
 import { BLACK } from "../constants/colors";
 import { useLocation, useNavigate } from "react-router-dom";
-import { AppBar, Button, Toolbar, useTheme } from "@mui/material";
+import { AppBar, IconButton, Toolbar } from "@mui/material";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 const Dashboard = () => {
-  const theme = useTheme();
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { state = {} } = useLocation();
@@ -26,11 +26,11 @@ const Dashboard = () => {
 
   return (
     <>
-      <AppBar color="inherit">
-        <Toolbar>
-          <Button onClick={logout} color={"info"}>
-            {"Logout"}
-          </Button>
+      <AppBar color="primary">
+        <Toolbar sx={{ justifyContent: "flex-end" }}>
+          <IconButton onClick={logout}>
+            <LogoutIcon color={"secondary"} />
+          </IconButton>
         </Toolbar>
       </AppBar>
       <Container component="main" maxWidth="md">
