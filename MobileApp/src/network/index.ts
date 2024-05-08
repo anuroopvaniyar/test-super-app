@@ -8,6 +8,5 @@ export const AxiosInstance = axios.create({
 });
 
 export const makeApiRequest = (requestConfig: AxiosRequestConfig) => {
-  console.log('efrd requestConfig ', requestConfig);
   return AxiosInstance.request(requestConfig);
 };

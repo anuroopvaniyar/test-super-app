@@ -3,7 +3,6 @@ import { AppRootState } from "../types";
 
 const useAppSettings = () => {
   const settings = useSelector((state: AppRootState) => state.settings);
-
   return settings;
 };
 
